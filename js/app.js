@@ -10,10 +10,10 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sum(a, b) {
   //eslint-disable-line
-  let mysum = a + b;
-  let mystring = "The sum of " + a + " and " + b + " is " + mysum + ".";
+  let sum = a + b;
+  let string = "The sum of " + a + " and " + b + " is " + sum + ".";
 
-  return [mysum, mystring];
+  return [sum, string];
 }
 
 // Here is the test for sum(); uncomment it to run it
@@ -33,9 +33,9 @@ Test this function by hand in the console to get it working, and when you think 
 function multiply(a, b) {
   //eslint-disable-line
   let multiply = a * b;
-  let mystring = "The product of " + a + " and " + b + " is " + multiply + ".";
+  let string = "The product of " + a + " and " + b + " is " + multiply + ".";
 
-  return [multiply, mystring];
+  return [multiply, string];
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -57,10 +57,29 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sumAndMultiply(a, b, c) {
   //eslint-disable-line
+  let sumab = sum(a, b)[0];
+  let sumabc = sum(sumab, c)[0];
+
+  let multiplyab = multiply(a, b)[0];
+  let multiplyabc = multiply(multiplyab, c)[0];
+
+  let sumstring = a + " and " + b + " and " + c + " sum to " + sumabc + ".";
+  let multiplystring =
+    "The product of " +
+    a +
+    " and " +
+    b +
+    " and " +
+    c +
+    " is " +
+    multiplyabc +
+    ".";
+
+  return [sumabc, multiplyabc, sumstring, multiplystring];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4, 7, 5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
